@@ -1,2 +1,2 @@
-# murmur3
-murmur3 hash
+# Go Patterns
+Go Patterns Practice
