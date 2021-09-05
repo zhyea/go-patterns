@@ -9,11 +9,11 @@ func main() {
 	iglooBuilder := getBuilder("igloo")
 
 	director := newDirector(cabinBuilder)
-	normalHouse := director.buildHouse()
+	cabinHouse := director.buildHouse()
 
-	fmt.Printf("Normal House Door Type: %s\n", normalHouse.doorType)
-	fmt.Printf("Normal House Window Type: %s\n", normalHouse.windowType)
-	fmt.Printf("Normal House Num Floor: %d\n", normalHouse.floor)
+	fmt.Printf("Cabin House Door Type: %s\n", cabinHouse.doorType)
+	fmt.Printf("Cabin House Window Type: %s\n", cabinHouse.windowType)
+	fmt.Printf("Cabin House Num Floor: %d\n", cabinHouse.floor)
 
 	director.setBuilder(iglooBuilder)
 	iglooHouse := director.buildHouse()
