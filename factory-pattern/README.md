@@ -1,3 +1,3 @@
-# Builder Pattern
+# Factory Pattern
 
-builder pattern practice
+factory pattern practice
