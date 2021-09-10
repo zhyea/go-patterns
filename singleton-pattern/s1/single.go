@@ -1,4 +1,4 @@
-package main
+package s1
 
 import (
 	"fmt"
@@ -12,12 +12,12 @@ type single struct {
 
 var singleInstance *single
 
-func getInstance() *single {
+func GetInstance() *single {
 	if singleInstance == nil {
 		lock.Lock()
 		defer lock.Unlock()
 		if singleInstance == nil {
-			fmt.Println("Creting Single Instance Now")
+			fmt.Println("Creating Single Instance Now")
 			singleInstance = &single{}
 		} else {
 			fmt.Println("Single Instance already created-1")

@@ -1,3 +1,3 @@
-module builder-pattern
+module singleton-pattern
 
 go 1.16
