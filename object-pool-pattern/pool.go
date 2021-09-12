@@ -9,7 +9,7 @@ type pool struct {
 	idle     []iPoolObject
 	active   []iPoolObject
 	capacity int
-	mulock   *sync.Mutex
+	muLock   *sync.Mutex
 }
 
 //initPool Initialize the pool
@@ -22,14 +22,14 @@ func initPool(poolObjects []iPoolObject) (*pool, error) {
 		idle:     poolObjects,
 		active:   active,
 		capacity: len(poolObjects),
-		mulock:   new(sync.Mutex),
+		muLock:   new(sync.Mutex),
 	}
 	return pool, nil
 }
 
 func (p *pool) loan() (iPoolObject, error) {
-	p.mulock.Lock()
-	defer p.mulock.Unlock()
+	p.muLock.Lock()
+	defer p.muLock.Unlock()
 	if len(p.idle) == 0 {
 		return nil, fmt.Errorf("no pool object free. Please request after sometime")
 	}
@@ -41,8 +41,8 @@ func (p *pool) loan() (iPoolObject, error) {
 }
 
 func (p *pool) receive(target iPoolObject) error {
-	p.mulock.Lock()
-	defer p.mulock.Unlock()
+	p.muLock.Lock()
+	defer p.muLock.Unlock()
 	err := p.remove(target)
 	if err != nil {
 		return err
