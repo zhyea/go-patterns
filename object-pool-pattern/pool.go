@@ -15,7 +15,7 @@ type pool struct {
 //initPool Initialize the pool
 func initPool(poolObjects []iPoolObject) (*pool, error) {
 	if len(poolObjects) == 0 {
-		return nil, fmt.Errorf("Cannot craete a pool of 0 length")
+		return nil, fmt.Errorf("cannot craete a pool of 0 length")
 	}
 	active := make([]iPoolObject, 0)
 	pool := &pool{
@@ -31,7 +31,7 @@ func (p *pool) loan() (iPoolObject, error) {
 	p.mulock.Lock()
 	defer p.mulock.Unlock()
 	if len(p.idle) == 0 {
-		return nil, fmt.Errorf("No pool object free. Please request after sometime")
+		return nil, fmt.Errorf("no pool object free. Please request after sometime")
 	}
 	obj := p.idle[0]
 	p.idle = p.idle[1:]
@@ -61,5 +61,5 @@ func (p *pool) remove(target iPoolObject) error {
 			return nil
 		}
 	}
-	return fmt.Errorf("Targe pool object doesn't belong to the pool")
+	return fmt.Errorf("targe pool object doesn't belong to the pool")
 }
