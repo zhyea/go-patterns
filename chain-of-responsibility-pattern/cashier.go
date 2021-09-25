@@ -11,6 +11,7 @@ func (c *cashier) execute(p *patient) {
 		fmt.Println("Payment Done")
 	}
 	fmt.Println("Cashier getting money from patient patient")
+	c.next.execute(p)
 }
 
 func (c *cashier) setNext(next department) {
