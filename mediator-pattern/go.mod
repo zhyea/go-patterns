@@ -1,3 +1,3 @@
-module mediator-factory-pattern
+module mediator-pattern
 
 go 1.16
