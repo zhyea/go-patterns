@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	shirtItem := newItem("Robin Zhang")
+	shirtItem := newItem("GoLang Design Patterns")
 	observerFirst := &customer{id: "robin@zhyea.com"}
 	observerSecond := &customer{id: "golang@zhyea.com"}
 	shirtItem.register(observerFirst)
